@@ -1,0 +1,8 @@
+---
+name: SimBA
+icon: fa://desktop
+category: Interactive Apps
+subcategory: GUIs
+role: batch_connect
+description: "This app will launch the [SimBA] GUI on the [Quest cluster].\r\n\r\n[SimBA]:
+  https://github.com/sgoldenlab/simba\r\n[Quest cluster]: https://www.it.northwestern.edu/departments/it-services-support/research/computing/quest/index.html\r\n"
