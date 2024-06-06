@@ -47,7 +47,7 @@ batch_connect:
     export SING_GPU=""
     <%- end %>
 
-    singularity exec -B /projects/a9009/sbc538/tickets/197274/SimBA.py:/usr/local/lib/python3.6/site-packages/simba/SimBA.py $SING_GPU $SING_BINDS "${container_image}" /bin/bash container.sh
+    singularity exec $SING_GPU $SING_BINDS "${container_image}" /bin/bash container.sh
     #singularity exec $SING_GPU $SING_BINDS "${container_image}" /bin/bash container.sh
 
 
