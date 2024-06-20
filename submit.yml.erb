@@ -47,8 +47,11 @@ batch_connect:
     export SING_GPU=""
     <%- end %>
 
-    singularity exec $SING_GPU $SING_BINDS "${container_image}" /bin/bash container.sh
-    #singularity exec $SING_GPU $SING_BINDS "${container_image}" /bin/bash container.sh
+    if [ ! -d "$HOME/.simba/" ]; then
+        mkdir -p $HOME/.simba/ && singularity exec /software/SimBA/1.95.1/simba-1.95.1-ubuntu2004.sif cp -r /usr/local/lib/python3.6/site-packages/simba/pose_configurations/ $HOME/.simba/;
+    fi;
+
+    singularity exec -B $HOME/.simba/pose_configurations/:/usr/local/lib/python3.6/site-packages/simba/pose_configurations $SING_GPU $SING_BINDS "${container_image}" /bin/bash container.sh
 
 
   header: | 
