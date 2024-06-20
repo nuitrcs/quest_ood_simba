@@ -7,6 +7,8 @@ cluster: "quests"
 form:
   # SimBA Version
   - version
+  # determines the size of your desktop window
+  - vnc_resolution
   # This allows the user to select which partition they submit to
   - slurm_partition
   # This allows a user to request a GPU
@@ -30,6 +32,7 @@ form:
   # these variables are for the JavaScript
   - raw_data
   - raw_group_data
+  - bc_vnc_resolution
 
 attributes:
   version:
@@ -38,6 +41,30 @@ attributes:
     help: "What version of SimBA would you like to launch"
     options:
       - [ "SimBA Ubuntu 22.04 1.95.1", "/software/SimBA/1.95.1/simba-1.95.1-ubuntu2004.sif"]
+
+  vnc_resolution:
+    label: "Resolution"
+    required: true
+    widget: "select"
+    value: "1280x1024"
+    options:
+      - ["2560x1600","2560x1600"]
+      - ["2560x1440","2560x1440"]
+      - ["1920x1200","1920x1200"]
+      - ["1920x1080","1920x1080"]
+      - ["1600x1200","1600x1200"]
+      - ["1280x1024","1280x1024"]
+      - ["1280x960","1280x960"]
+      - ["1024x768","1024x768"]
+      - ["800x600","800x600"]
+    help: |
+      The resolution setting (in pixels width x height) for the VNC connection.
+
+  bc_vnc_resolution:
+    required: true
+    value: "1280x1024"
+    help: |
+      The resolution setting (in pixels width x height) for the VNC connection.
 
   bc_num_hours:
     label: "Wall Time (in number of hours)"
